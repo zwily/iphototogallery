@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		FF50DA410863D122005E37D9 /* iPhotoToGallery Install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FF50DA470863D146005E37D9 /* Build configuration list for PBXAggregateTarget "iPhotoToGallery Install" */;
+			buildPhases = (
+				FF50DA400863D122005E37D9 /* ShellScript */,
+			);
+			buildSettings = {
+				OPTIMIZATION_CFLAGS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "iPhotoToGallery Install";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			dependencies = (
+				FF50DA430863D128005E37D9 /* PBXTargetDependency */,
+			);
+			name = "iPhotoToGallery Install";
+			productName = "iPhotoToGallery Install";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		FF177EA7055F279C00AE3C9A /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF177EA5055F279C00AE3C9A /* ImageResizer.m */; };
+		FF1F7C520577F3280000D2DB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1F7C510577F3280000D2DB /* Security.framework */; };
+		FF22CE0C04F838CC0094E114 /* iPhotoToGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FF22CE0804F838CC0094E114 /* iPhotoToGallery.m */; };
+		FF22CE0E04F838CC0094E114 /* iPhotoToGalleryExportPluginBox.m in Sources */ = {isa = PBXBuildFile; fileRef = FF22CE0A04F838CC0094E114 /* iPhotoToGalleryExportPluginBox.m */; };
+		FF34F89F085B41D6001B1421 /* InterThreadMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = FF34F89D085B41D6001B1421 /* InterThreadMessaging.m */; };
+		FF64F5B40874F0C30057A0FC /* Panel.nib in Resources */ = {isa = PBXBuildFile; fileRef = FF64F5AE0874F0C30057A0FC /* Panel.nib */; };
+		FF64F5EB0874F2CD0057A0FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF64F5E90874F2CD0057A0FC /* InfoPlist.strings */; };
+		FF64F6230874F3890057A0FC /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF64F61B0874F3890057A0FC /* Growl.framework */; };
+		FF64F6240874F3900057A0FC /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FF64F61B0874F3890057A0FC /* Growl.framework */; };
+		FF64F7360875FEA00057A0FC /* ZWMutableURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF64F7340875FEA00057A0FC /* ZWMutableURLRequest.m */; };
+		FF702FB205703EC200C63511 /* ZWGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FF702FB005703EC200C63511 /* ZWGallery.m */; };
+		FF702FB805703ED600C63511 /* ZWGalleryAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = FF702FB605703ED600C63511 /* ZWGalleryAlbum.m */; };
+		FF702FBE05703EEA00C63511 /* ZWGalleryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FF702FBC05703EEA00C63511 /* ZWGalleryItem.m */; };
+		FF702FFA05712C6B00C63511 /* NSString+misc.m in Sources */ = {isa = PBXBuildFile; fileRef = FF702FF805712C6B00C63511 /* NSString+misc.m */; };
+		FF89399B085B77E500404828 /* iPhotoPluginIcon.tif in Resources */ = {isa = PBXBuildFile; fileRef = FF89399A085B77E500404828 /* iPhotoPluginIcon.tif */; };
+		FF8939E0085B79AD00404828 /* iPhotoPluginIcon_80.tif in Resources */ = {isa = PBXBuildFile; fileRef = FF8939DF085B79AD00404828 /* iPhotoPluginIcon_80.tif */; };
+		FF893A01085B950800404828 /* NSView+Fading.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8939FF085B950800404828 /* NSView+Fading.m */; };
+		FF893AF8085CDBB100404828 /* ZWTransitionImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF893AF6085CDBB100404828 /* ZWTransitionImageView.m */; };
+		FF893DA2085D7EE300404828 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF893D90085D7EE300404828 /* SystemConfiguration.framework */; };
+		FF98099605D55E5F004E84A4 /* ZWAlbumNameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF98099405D55E5F004E84A4 /* ZWAlbumNameFormatter.m */; };
+		FFD91B4F0858CC930018CA10 /* ZWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD91B4D0858CC930018CA10 /* ZWURLConnection.m */; };
+		FFE4DA40055F747B00E117BE /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE4DA3F055F747B00E117BE /* QuickTime.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		FF1297A20853E85E000929B0 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.gcc.3_3;
+			fileType = sourcecode.c;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+		FF1297A30853E87F000929B0 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.gcc.3_3;
+			fileType = sourcecode.asm;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXBuildStyle section */
+		014CEA420018CDE011CA2923 /* Development */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_LDFLAGS = "";
+				ZERO_LINK = NO;
+			};
+			name = Development;
+		};
+		014CEA430018CDE011CA2923 /* Deployment */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		FF50DA420863D128005E37D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = iPhotoToGallery;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FFEF9CE40856BBCC00A0C0DB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF64F6240874F3900057A0FC /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF630370AF2F00C91783 /* iPhotoToGallery_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhotoToGallery_Prefix.pch; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* iPhotoToGallery.iPhotoExporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iPhotoToGallery.iPhotoExporter; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF0FDA04086A3ACB00C17F70 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
+		FF1578F005DAEB31009C952D /* iPhotoExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhotoExporter.h; path = Source/iPhotoExporter.h; sourceTree = "<group>"; };
+		FF177EA4055F279C00AE3C9A /* ImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageResizer.h; path = Source/ImageResizer.h; sourceTree = "<group>"; };
+		FF177EA5055F279C00AE3C9A /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageResizer.m; path = Source/ImageResizer.m; sourceTree = "<group>"; };
+		FF1F7C510577F3280000D2DB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		FF22CE0704F838CC0094E114 /* iPhotoToGalleryExportPluginBox.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = iPhotoToGalleryExportPluginBox.h; path = Source/iPhotoToGalleryExportPluginBox.h; sourceTree = "<group>"; };
+		FF22CE0804F838CC0094E114 /* iPhotoToGallery.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = iPhotoToGallery.m; path = Source/iPhotoToGallery.m; sourceTree = "<group>"; };
+		FF22CE0904F838CC0094E114 /* iPhotoToGallery.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = iPhotoToGallery.h; path = Source/iPhotoToGallery.h; sourceTree = "<group>"; };
+		FF22CE0A04F838CC0094E114 /* iPhotoToGalleryExportPluginBox.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = iPhotoToGalleryExportPluginBox.m; path = Source/iPhotoToGalleryExportPluginBox.m; sourceTree = "<group>"; };
+		FF34F89C085B41D6001B1421 /* InterThreadMessaging.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = InterThreadMessaging.h; path = Source/InterThreadMessaging.h; sourceTree = "<group>"; };
+		FF34F89D085B41D6001B1421 /* InterThreadMessaging.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = InterThreadMessaging.m; path = Source/InterThreadMessaging.m; sourceTree = "<group>"; };
+		FF640A61086220F70013291B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FF64F5AF0874F0C30057A0FC /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = Resources/English.lproj/Panel.nib; sourceTree = "<group>"; };
+		FF64F5EA0874F2CD0057A0FC /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FF64F61B0874F3890057A0FC /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
+		FF64F7330875FEA00057A0FC /* ZWMutableURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZWMutableURLRequest.h; path = Source/ZWMutableURLRequest.h; sourceTree = "<group>"; };
+		FF64F7340875FEA00057A0FC /* ZWMutableURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZWMutableURLRequest.m; path = Source/ZWMutableURLRequest.m; sourceTree = "<group>"; };
+		FF702FAF05703EC200C63511 /* ZWGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWGallery.h; sourceTree = "<group>"; };
+		FF702FB005703EC200C63511 /* ZWGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWGallery.m; sourceTree = "<group>"; };
+		FF702FB505703ED600C63511 /* ZWGalleryAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWGalleryAlbum.h; sourceTree = "<group>"; };
+		FF702FB605703ED600C63511 /* ZWGalleryAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWGalleryAlbum.m; sourceTree = "<group>"; };
+		FF702FBB05703EEA00C63511 /* ZWGalleryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWGalleryItem.h; sourceTree = "<group>"; };
+		FF702FBC05703EEA00C63511 /* ZWGalleryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWGalleryItem.m; sourceTree = "<group>"; };
+		FF702FF705712C6B00C63511 /* NSString+misc.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = "NSString+misc.h"; path = "Source/NSString+misc.h"; sourceTree = "<group>"; };
+		FF702FF805712C6B00C63511 /* NSString+misc.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = "NSString+misc.m"; path = "Source/NSString+misc.m"; sourceTree = "<group>"; };
+		FF89399A085B77E500404828 /* iPhotoPluginIcon.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = iPhotoPluginIcon.tif; path = Resources/iPhotoPluginIcon.tif; sourceTree = "<group>"; };
+		FF89399C085B77EA00404828 /* iPhotoPluginIcon.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = iPhotoPluginIcon.psd; path = Resources/iPhotoPluginIcon.psd; sourceTree = "<group>"; };
+		FF8939DF085B79AD00404828 /* iPhotoPluginIcon_80.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = iPhotoPluginIcon_80.tif; path = Resources/iPhotoPluginIcon_80.tif; sourceTree = "<group>"; };
+		FF8939FE085B950700404828 /* NSView+Fading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+Fading.h"; path = "Source/NSView+Fading.h"; sourceTree = "<group>"; };
+		FF8939FF085B950800404828 /* NSView+Fading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSView+Fading.m"; path = "Source/NSView+Fading.m"; sourceTree = "<group>"; };
+		FF893AF5085CDBB100404828 /* ZWTransitionImageView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ZWTransitionImageView.h; path = Source/ZWTransitionImageView.h; sourceTree = "<group>"; };
+		FF893AF6085CDBB100404828 /* ZWTransitionImageView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ZWTransitionImageView.m; path = Source/ZWTransitionImageView.m; sourceTree = "<group>"; };
+		FF893AFC085CDBC500404828 /* restrictedshine.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = restrictedshine.tiff; path = Resources/restrictedshine.tiff; sourceTree = "<group>"; };
+		FF893D90085D7EE300404828 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		FF98099305D55E5F004E84A4 /* ZWAlbumNameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZWAlbumNameFormatter.h; path = Source/ZWAlbumNameFormatter.h; sourceTree = "<group>"; };
+		FF98099405D55E5F004E84A4 /* ZWAlbumNameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZWAlbumNameFormatter.m; path = Source/ZWAlbumNameFormatter.m; sourceTree = "<group>"; };
+		FFD91B4C0858CC920018CA10 /* ZWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZWURLConnection.h; path = Source/ZWURLConnection.h; sourceTree = "<group>"; };
+		FFD91B4D0858CC930018CA10 /* ZWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZWURLConnection.m; path = Source/ZWURLConnection.m; sourceTree = "<group>"; };
+		FFE4DA3F055F747B00E117BE /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				FFE4DA40055F747B00E117BE /* QuickTime.framework in Frameworks */,
+				FF1F7C520577F3280000D2DB /* Security.framework in Frameworks */,
+				FF893DA2085D7EE300404828 /* SystemConfiguration.framework in Frameworks */,
+				FF64F6230874F3890057A0FC /* Growl.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* iPhotoToGallery */ = {
+			isa = PBXGroup;
+			children = (
+				FF640A61086220F70013291B /* LICENSE */,
+				08FB77AFFE84173DC02AAC07 /* Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+			);
+			name = iPhotoToGallery;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF64F5E90874F2CD0057A0FC /* InfoPlist.strings */,
+				FF64F5AE0874F0C30057A0FC /* Panel.nib */,
+				FF893AFC085CDBC500404828 /* restrictedshine.tiff */,
+				FF8939DF085B79AD00404828 /* iPhotoPluginIcon_80.tif */,
+				FF89399C085B77EA00404828 /* iPhotoPluginIcon.psd */,
+				FF89399A085B77E500404828 /* iPhotoPluginIcon.tif */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF630370AF2F00C91783 /* iPhotoToGallery_Prefix.pch */,
+				FF1578F005DAEB31009C952D /* iPhotoExporter.h */,
+				FF22CE0704F838CC0094E114 /* iPhotoToGalleryExportPluginBox.h */,
+				FF22CE0A04F838CC0094E114 /* iPhotoToGalleryExportPluginBox.m */,
+				FF22CE0904F838CC0094E114 /* iPhotoToGallery.h */,
+				FF22CE0804F838CC0094E114 /* iPhotoToGallery.m */,
+				FF50BBE7085617350073F0E4 /* Gallery */,
+				FF64F5B50874F0D80057A0FC /* Other */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF64F61B0874F3890057A0FC /* Growl.framework */,
+				FF0FDA04086A3ACB00C17F70 /* Quartz.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				FF893D90085D7EE300404828 /* SystemConfiguration.framework */,
+				FF1F7C510577F3280000D2DB /* Security.framework */,
+				FFE4DA3F055F747B00E117BE /* QuickTime.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* iPhotoToGallery.iPhotoExporter */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF50BBE7085617350073F0E4 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				FF702FAF05703EC200C63511 /* ZWGallery.h */,
+				FF702FB005703EC200C63511 /* ZWGallery.m */,
+				FF702FB505703ED600C63511 /* ZWGalleryAlbum.h */,
+				FF702FB605703ED600C63511 /* ZWGalleryAlbum.m */,
+				FF702FBB05703EEA00C63511 /* ZWGalleryItem.h */,
+				FF702FBC05703EEA00C63511 /* ZWGalleryItem.m */,
+			);
+			name = Gallery;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		FF64F5B50874F0D80057A0FC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FF177EA4055F279C00AE3C9A /* ImageResizer.h */,
+				FF177EA5055F279C00AE3C9A /* ImageResizer.m */,
+				FF702FF705712C6B00C63511 /* NSString+misc.h */,
+				FF702FF805712C6B00C63511 /* NSString+misc.m */,
+				FF8939FE085B950700404828 /* NSView+Fading.h */,
+				FF8939FF085B950800404828 /* NSView+Fading.m */,
+				FF34F89C085B41D6001B1421 /* InterThreadMessaging.h */,
+				FF34F89D085B41D6001B1421 /* InterThreadMessaging.m */,
+				FF98099305D55E5F004E84A4 /* ZWAlbumNameFormatter.h */,
+				FF98099405D55E5F004E84A4 /* ZWAlbumNameFormatter.m */,
+				FFD91B4C0858CC920018CA10 /* ZWURLConnection.h */,
+				FFD91B4D0858CC930018CA10 /* ZWURLConnection.m */,
+				FF893AF5085CDBB100404828 /* ZWTransitionImageView.h */,
+				FF893AF6085CDBB100404828 /* ZWTransitionImageView.m */,
+				FF64F7330875FEA00057A0FC /* ZWMutableURLRequest.h */,
+				FF64F7340875FEA00057A0FC /* ZWMutableURLRequest.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* iPhotoToGallery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF93797908553AA800831A51 /* Build configuration list for PBXNativeTarget "iPhotoToGallery" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				FFEF9CE40856BBCC00A0C0DB /* CopyFiles */,
+			);
+			buildRules = (
+				FF1297A30853E87F000929B0 /* PBXBuildRule */,
+				FF1297A20853E85E000929B0 /* PBXBuildRule */,
+			);
+			buildSettings = {
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iPhotoToGallery_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Applications/iPhoto.app/Contents/Plugins;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = iPhotoToGallery;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = iPhotoExporter;
+			};
+			dependencies = (
+			);
+			name = iPhotoToGallery;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = iPhotoToGallery;
+			productReference = 8D5B49B6048680CD000E48DA /* iPhotoToGallery.iPhotoExporter */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = FF93797D08553AA800831A51 /* Build configuration list for PBXProject "iPhotoToGallery" */;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
+			};
+			buildStyles = (
+				014CEA420018CDE011CA2923 /* Development */,
+				014CEA430018CDE011CA2923 /* Deployment */,
+			);
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* iPhotoToGallery */;
+			projectDirPath = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* iPhotoToGallery */,
+				FF50DA410863D122005E37D9 /* iPhotoToGallery Install */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF89399B085B77E500404828 /* iPhotoPluginIcon.tif in Resources */,
+				FF8939E0085B79AD00404828 /* iPhotoPluginIcon_80.tif in Resources */,
+				FF64F5B40874F0C30057A0FC /* Panel.nib in Resources */,
+				FF64F5EB0874F2CD0057A0FC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FF50DA400863D122005E37D9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "rm -fr /Applications/iPhoto.app/Contents/PlugIns/iPhotoToGallery.iPhotoExporter\n\ncp -R $BUILT_PRODUCTS_DIR/iPhotoToGallery.iPhotoExporter /Applications/iPhoto.app/Contents/PlugIns/\nchmod -R g+w /Applications/iPhoto.app/Contents/PlugIns/iPhotoToGallery.iPhotoExporter\n\n# shell script goes here\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF22CE0C04F838CC0094E114 /* iPhotoToGallery.m in Sources */,
+				FF22CE0E04F838CC0094E114 /* iPhotoToGalleryExportPluginBox.m in Sources */,
+				FF177EA7055F279C00AE3C9A /* ImageResizer.m in Sources */,
+				FF702FB205703EC200C63511 /* ZWGallery.m in Sources */,
+				FF702FB805703ED600C63511 /* ZWGalleryAlbum.m in Sources */,
+				FF702FBE05703EEA00C63511 /* ZWGalleryItem.m in Sources */,
+				FF702FFA05712C6B00C63511 /* NSString+misc.m in Sources */,
+				FF98099605D55E5F004E84A4 /* ZWAlbumNameFormatter.m in Sources */,
+				FFD91B4F0858CC930018CA10 /* ZWURLConnection.m in Sources */,
+				FF34F89F085B41D6001B1421 /* InterThreadMessaging.m in Sources */,
+				FF893A01085B950800404828 /* NSView+Fading.m in Sources */,
+				FF893AF8085CDBB100404828 /* ZWTransitionImageView.m in Sources */,
+				FF64F7360875FEA00057A0FC /* ZWMutableURLRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF50DA430863D128005E37D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* iPhotoToGallery */;
+			targetProxy = FF50DA420863D128005E37D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF64F5AE0874F0C30057A0FC /* Panel.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF64F5AF0874F0C30057A0FC /* English */,
+			);
+			name = Panel.nib;
+			sourceTree = "<group>";
+		};
+		FF64F5E90874F2CD0057A0FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF64F5EA0874F2CD0057A0FC /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF50DA480863D146005E37D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "iPhotoToGallery Install";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		FF50DA490863D146005E37D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = "iPhotoToGallery Install";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		FF93797C08553AA800831A51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iPhotoToGallery_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Applications/iPhoto.app/Contents/Plugins;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = iPhotoToGallery;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = iPhotoExporter;
+			};
+			name = Release;
+		};
+		FF93798008553AA800831A51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"<Multiple",
+					"values>",
+					ppc,
+					i386,
+				);
+				CURRENT_PROJECT_VERSION = 2;
+				FRAMEWORK_SEARCH_PATHS = Frameworks/;
+				GCC_VERSION_i386 = 4.0;
+				GCC_VERSION_ppc = 3.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.2;
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					Quartz,
+				);
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		FFD91BF00858E1010018CA10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iPhotoToGallery_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Applications/iPhoto.app/Contents/Plugins;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = iPhotoToGallery;
+				SECTORDER_FLAGS = "";
+				UNSTRIPPED_PRODUCT = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = iPhotoExporter;
+			};
+			name = Debug;
+		};
+		FFD91BF10858E1010018CA10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 2;
+				FRAMEWORK_SEARCH_PATHS = Frameworks/;
+				MACOSX_DEPLOYMENT_TARGET = 10.2;
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					Quartz,
+				);
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF50DA470863D146005E37D9 /* Build configuration list for PBXAggregateTarget "iPhotoToGallery Install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF50DA480863D146005E37D9 /* Release */,
+				FF50DA490863D146005E37D9 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF93797908553AA800831A51 /* Build configuration list for PBXNativeTarget "iPhotoToGallery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF93797C08553AA800831A51 /* Release */,
+				FFD91BF00858E1010018CA10 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF93797D08553AA800831A51 /* Build configuration list for PBXProject "iPhotoToGallery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF93798008553AA800831A51 /* Release */,
+				FFD91BF10858E1010018CA10 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

@@ -1,0 +1,91 @@
+{
+    IBClasses = (
+        {
+            CLASS = CancellableProgressIndicator; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSProgressIndicator; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = RolloverButton; LANGUAGE = ObjC; SUPERCLASS = NSButton; }, 
+        {CLASS = ZWTransitionImageView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {
+                clickAlbumSettingsCancel = id; 
+                clickAlbumSettingsCreateAlbum = id; 
+                clickCancelLogin = id; 
+                clickCreateNewAlbum = id; 
+                clickDonate = id; 
+                clickGalleryListDone = id; 
+                clickGalleryListRemove = id; 
+                clickGalleryListSelectGallery = id; 
+                clickGalleryPopup = id; 
+                clickGallerySettingsCancel = id; 
+                clickGallerySettingsOK = id; 
+                clickGallerySettingsShowAdvancedOptions = id; 
+                clickGallerySettingsUseHTTPAuth = id; 
+                clickLogin = id; 
+                clickPasswordCancel = id; 
+                clickPasswordOK = id; 
+                clickProgressCancel = id; 
+                clickScaleImages = id; 
+                clickiPhotoToGalleryName = id; 
+            }; 
+            CLASS = iPhotoToGallery; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                albumSettingsDescriptionField = id; 
+                albumSettingsNameField = id; 
+                albumSettingsNestedInPopup = id; 
+                albumSettingsPanel = id; 
+                albumSettingsTitleField = id; 
+                exportManager = id; 
+                firstView = id; 
+                galleryListPanel = id; 
+                galleryListRemoveGalleryButton = id; 
+                galleryListTable = id; 
+                gallerySettingsAdvancedBox = id; 
+                gallerySettingsHTTPPasswordField = id; 
+                gallerySettingsHTTPUsernameField = id; 
+                gallerySettingsPanel = id; 
+                gallerySettingsPasswordField = id; 
+                gallerySettingsShowAdvancedOptionsString = id; 
+                gallerySettingsShowAdvancedOptionsSwitch = id; 
+                gallerySettingsURLField = id; 
+                gallerySettingsUseHTTPAuthSwitch = id; 
+                gallerySettingsUseHTTPSSwitch = id; 
+                gallerySettingsUsernameField = id; 
+                lastView = id; 
+                mainAddToAlbumPopup = id; 
+                mainConnectCancelButton = id; 
+                mainCreateNewAlbumButton = id; 
+                mainDonateButton = id; 
+                mainExportCommentsSwitch = id; 
+                mainGalleryPopup = id; 
+                mainOpenBrowserSwitch = id; 
+                mainProgressIndicator = id; 
+                mainScaleImagesHeightField = id; 
+                mainScaleImagesSwitch = id; 
+                mainScaleImagesWidthField = id; 
+                mainStatusString = id; 
+                passwordDescriptionField = id; 
+                passwordInputField = id; 
+                passwordPanel = id; 
+                passwordTitleField = id; 
+                progressImageView = id; 
+                progressPanel = id; 
+                progressProgressIndicator = id; 
+                progressUploadingDetailField = id; 
+                progressUploadingTextField = id; 
+                settingsView = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = iPhotoToGalleryExportPluginBox; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {mPlugin = id; }; 
+            SUPERCLASS = NSBox; 
+        }
+    ); 
+    IBVersion = 1; 
+}
