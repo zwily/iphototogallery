@@ -933,111 +933,113 @@ static int loggingIn;
     ZWGalleryRemoteStatusCode status = 0;
     
     int imageNum;
-    for (imageNum = 0; imageNum < (int)[exportManager imageCount]; imageNum++) {
+    BOOL cancel = NO;
+    for (imageNum = 0; imageNum < (int)[exportManager imageCount] && !cancel; imageNum++) {
         // Create our own pool so we don't use up tons of memory with autoreleased image data
-        NSAutoreleasePool *innerPool = [[NSAutoreleasePool alloc] init];
+        NSAutoreleasePool *innerPool = [[NSAutoreleasePool alloc] init]; {
         
-        NSString *imagePath = [exportManager imagePathAtIndex:imageNum];
-        NSDictionary *imageDict = [self exportManagerImageDictionaryAtIndex:imageNum];
-        
-        ZWGalleryItem *item = [ZWGalleryItem itemWithAlbum:album];
-        
-        // add the filename
-        [item setFilename:[imagePath lastPathComponent]];
-        
-        // add the image type (default to jpg)
-        // TODO: Be smarter here. There are many more possible image types we need to handle.
-        if ([[imagePath pathExtension] caseInsensitiveCompare:@"gif"] == NSOrderedSame) 
-            [item setImageType:@"image/gif"];
-        else if ([[imagePath pathExtension] caseInsensitiveCompare:@"png"] == NSOrderedSame) 
-            [item setImageType:@"image/png"];
-        else 
-            [item setImageType:@"image/jpeg"];
-        
-        // add the comments and description, if so desired
-        if ([mainExportCommentsSwitch state]) {
-            if ([imageDict objectForKey:@"Caption"]) 
-                [item setCaption:[imageDict objectForKey:@"Caption"]];
-            if ([imageDict objectForKey:@"Annotation"]) 
-                [item setDescription:[imageDict objectForKey:@"Annotation"]];
-        }
-        
-        // finally, add the image data
-        NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
-        NSImage *image = [[[NSImage alloc] initWithData:imageData] autorelease];
+            NSString *imagePath = [exportManager imagePathAtIndex:imageNum];
+            NSDictionary *imageDict = [self exportManagerImageDictionaryAtIndex:imageNum];
+            
+            ZWGalleryItem *item = [ZWGalleryItem itemWithAlbum:album];
+            
+            // add the filename
+            [item setFilename:[imagePath lastPathComponent]];
+            
+            // add the image type (default to jpg)
+            // TODO: Be smarter here. There are many more possible image types we need to handle.
+            if ([[imagePath pathExtension] caseInsensitiveCompare:@"gif"] == NSOrderedSame) 
+                [item setImageType:@"image/gif"];
+            else if ([[imagePath pathExtension] caseInsensitiveCompare:@"png"] == NSOrderedSame) 
+                [item setImageType:@"image/png"];
+            else 
+                [item setImageType:@"image/jpeg"];
+            
+            // add the comments and description, if so desired
+            if ([mainExportCommentsSwitch state]) {
+                if ([imageDict objectForKey:@"Caption"]) 
+                    [item setCaption:[imageDict objectForKey:@"Caption"]];
+                if ([imageDict objectForKey:@"Annotation"]) 
+                    [item setDescription:[imageDict objectForKey:@"Annotation"]];
+            }
+            
+            // finally, add the image data
+            NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
+            NSImage *image = [[[NSImage alloc] initWithData:imageData] autorelease];
 
-        currentImageIndex = imageNum;
-        
-        if ([mainScaleImagesSwitch state] == NSOnState) {
+            currentImageIndex = imageNum;
+            
+            if ([mainScaleImagesSwitch state] == NSOnState) {
+                NSDictionary *progressInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                    [NSString stringWithFormat:@"Resizing %@...", [imagePath lastPathComponent]], @"UploadingTextField",
+                    [NSString stringWithFormat:@"(Photo %i of %i)", imageNum + 1, (int)[exportManager imageCount]], @"UploadingDetailField",
+                    [NSNumber numberWithInt:currentImageIndex], @"ProgressBarLocation",
+                    image, @"Image",
+                    nil];
+                [self performSelectorOnMainThread:@selector(updateProgress:) withObject:progressInfo waitUntilDone:NO modes:[NSArray arrayWithObjects:NSDefaultRunLoopMode, NSModalPanelRunLoopMode, nil]];
+                
+                NSData *scaledData = [ImageResizer getScaledImageFromData:imageData toSize:NSMakeSize([mainScaleImagesWidthField intValue], [mainScaleImagesHeightField intValue])];
+                [item setData:scaledData];
+                currentImageSize = [scaledData length];
+            } else {
+                [item setData:imageData];
+                currentImageSize = [imageData length];
+            }
+
             NSDictionary *progressInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                [NSString stringWithFormat:@"Resizing %@...", [imagePath lastPathComponent]], @"UploadingTextField",
+                [NSString stringWithFormat:@"Uploading %@...", [imagePath lastPathComponent]], @"UploadingTextField",
                 [NSString stringWithFormat:@"(Photo %i of %i)", imageNum + 1, (int)[exportManager imageCount]], @"UploadingDetailField",
                 [NSNumber numberWithInt:currentImageIndex], @"ProgressBarLocation",
                 image, @"Image",
                 nil];
             [self performSelectorOnMainThread:@selector(updateProgress:) withObject:progressInfo waitUntilDone:NO modes:[NSArray arrayWithObjects:NSDefaultRunLoopMode, NSModalPanelRunLoopMode, nil]];
             
-            NSData *scaledData = [ImageResizer getScaledImageFromData:imageData toSize:NSMakeSize([mainScaleImagesWidthField intValue], [mainScaleImagesHeightField intValue])];
-            [item setData:scaledData];
-            currentImageSize = [scaledData length];
-        } else {
-            [item setData:imageData];
-            currentImageSize = [imageData length];
-        }
+            [album setDelegate:self];
+            status = [album addItemSynchronously:item];
 
-        NSDictionary *progressInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-            [NSString stringWithFormat:@"Uploading %@...", [imagePath lastPathComponent]], @"UploadingTextField",
-            [NSString stringWithFormat:@"(Photo %i of %i)", imageNum + 1, (int)[exportManager imageCount]], @"UploadingDetailField",
-            [NSNumber numberWithInt:currentImageIndex], @"ProgressBarLocation",
-            image, @"Image",
-            nil];
-        [self performSelectorOnMainThread:@selector(updateProgress:) withObject:progressInfo waitUntilDone:NO modes:[NSArray arrayWithObjects:NSDefaultRunLoopMode, NSModalPanelRunLoopMode, nil]];
-        
-        [album setDelegate:self];
-        status = [album addItemSynchronously:item];
+            if (status != GR_STAT_SUCCESS) {
+                switch (status) {
+                    case ZW_GALLERY_OPERATION_DID_CANCEL:
+                        if (imageNum == 1) 
+                            [mainStatusString setStringValue:[NSString stringWithFormat:@"Export cancelled after %i photo", imageNum]];
+                        else
+                            [mainStatusString setStringValue:[NSString stringWithFormat:@"Export cancelled after %i photos", imageNum]];
+                        break;
+                    
+                    case GR_STAT_UPLOAD_PHOTO_FAIL:
+                        [mainStatusString setStringValue:@"Failed. Could not upload."];
+                        break;
 
-        [innerPool release];
-        
-        if (status != GR_STAT_SUCCESS) {
-            
-            switch (status) {
-                case ZW_GALLERY_OPERATION_DID_CANCEL:
-                    if (imageNum == 1) 
-                        [mainStatusString setStringValue:[NSString stringWithFormat:@"Export cancelled after %i photo", imageNum]];
-                    else
-                        [mainStatusString setStringValue:[NSString stringWithFormat:@"Export cancelled after %i photos", imageNum]];
-                    break;
+                    default:
+                        NSLog(@"Export failed with error: %i", status);
+                        [mainStatusString setStringValue:[NSString stringWithFormat:@"Export failed (error code: %i)", status]];
+                }
+                    
+                if (status != ZW_GALLERY_OPERATION_DID_CANCEL) {
+                    [GrowlApplicationBridge notifyWithTitle:@"Export Failed"
+                                                description:[NSString stringWithFormat:@"Export to gallery failed after %i photos were uploaded",
+                                                    imageNum]
+                                           notificationName:@"Export to Gallery Failed"
+                                                   iconData:[item data]
+                                                   priority:0
+                                                   isSticky:NO
+                                               clickContext:NULL];
+                }
                 
-                case GR_STAT_UPLOAD_PHOTO_FAIL:
-                    [mainStatusString setStringValue:@"Failed. Could not upload."];
-                    break;
-
-                default:
-                    [mainStatusString setStringValue:[NSString stringWithFormat:@"Export failed (error code: %i)", status]];
+                cancel = YES;
             }
-                
-            if (status != ZW_GALLERY_OPERATION_DID_CANCEL) 
-                [GrowlApplicationBridge notifyWithTitle:@"Export Failed"
-                                            description:[NSString stringWithFormat:@"Export to gallery failed after %i photos were uploaded",
-                                                imageNum]
-                                       notificationName:@"Export to Gallery Failed"
+            else {
+                [GrowlApplicationBridge notifyWithTitle:@"Photo Uploaded"
+                                            description:[NSString stringWithFormat:@"Photo %@ uploaded to Gallery",
+                                                [item filename]]
+                                       notificationName:@"Photo Uploaded to Gallery"
                                                iconData:[item data]
                                                priority:0
                                                isSticky:NO
                                            clickContext:NULL];
+            }
             
-            break;
-        }
-        else {
-            [GrowlApplicationBridge notifyWithTitle:@"Photo Uploaded"
-                                        description:[NSString stringWithFormat:@"Photo %@ uploaded to Gallery",
-                                            [item filename]]
-                                   notificationName:@"Photo Uploaded to Gallery"
-                                           iconData:[item data]
-                                           priority:0
-                                           isSticky:NO
-                                       clickContext:NULL];
-        }
+        } [innerPool release];
     }
     
     [NSApp endSheet:progressPanel];
