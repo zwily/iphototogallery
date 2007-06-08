@@ -54,10 +54,10 @@ static int loggingIn;
 
 #pragma mark -
 
-- initWithExportImageObj:fp16 {
+- (id)initWithExportImageObj:(id)exportMgr {
     [NSThread prepareForInterThreadMessages];
     
-    exportManager = fp16; // weak reference - we don't expect our ExportManager to disappear on us
+    exportManager = exportMgr; // weak reference - we don't expect our ExportManager to disappear on us
 
     [GrowlApplicationBridge setGrowlDelegate:self];
     
@@ -1055,7 +1055,11 @@ static int loggingIn;
             else {
                 // URLs look like this: http://example.com/gallery2/main.php?g2_view=core:ShowItem&g2_itemId=16
                 albumURLString = [NSMutableString stringWithString:[[currentGallery url] absoluteString]];
-                [albumURLString appendFormat:@"/main.php?g2_view=core:ShowItem&g2_itemId=%@", [album name]];
+              
+                // Take care of trailing slashes! (thx: Johann Richard)
+                if (![albumURLString hasSuffix:@"/"])
+                    [albumURLString appendString:@"/"];
+                [albumURLString appendFormat:@"main.php?g2_view=core:ShowItem&g2_itemId=%@", [album name]];
             }
             [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:albumURLString]];
         }
