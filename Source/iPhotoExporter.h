@@ -154,6 +154,7 @@
 - imageDictionaryAtIndex:(unsigned int)fp12;
 - (float)imageAspectRatioAtIndex:(unsigned int)fp12;
 - selectedAlbums;
+- albumComments;
 - albumName;
 - albumMusicPath;
 - (unsigned int)albumCount;

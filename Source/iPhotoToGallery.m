@@ -305,10 +305,18 @@ static int loggingIn;
         [nameFormatter release];
     }
     
+    // Get defaults for the Title and Description fields (thx Nathaniel Gray)
+    NSString *currAlbum, *currComments = nil;
+    currAlbum = [exportManager albumName];
+    currAlbum = currAlbum ? currAlbum : @"";
+    if ([exportManager respondsToSelector:@selector(albumComments)])
+        currComments = [exportManager albumComments];
+    currComments = currComments ? currComments : @"";
+    
     [albumSettingsPanel makeFirstResponder:albumSettingsTitleField];
-    [albumSettingsTitleField setStringValue:@""];
+    [albumSettingsTitleField setStringValue:currAlbum];
     [albumSettingsNameField setStringValue:@""];
-    [albumSettingsDescriptionField setString:@""];
+    [albumSettingsDescriptionField setString:currComments];
     
     // populate the "nested in" popup
     [albumSettingsNestedInPopup removeAllItems];
