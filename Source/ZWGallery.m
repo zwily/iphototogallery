@@ -372,8 +372,16 @@
             NSData *data = [currentConnection data];
             response = [currentConnection response];
 
-            if (data == nil) 
-                return ZW_GALLERY_COULD_NOT_CONNECT;
+            if (data == nil) {
+                if (tryGalleryV2) 
+                    return ZW_GALLERY_COULD_NOT_CONNECT;
+                
+                // There is at least one instance (reported by adeh@desandies.com) where 
+                // data will be nil, even though a G2 installation does exist. In that case,
+                // let's try G2 if we haven't already.
+                tryGalleryV2 = YES;
+                continue;
+            }
             
             galleryResponse = [self parseResponseData:data];
             
