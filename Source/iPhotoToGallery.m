@@ -209,6 +209,10 @@ static int loggingIn;
     return NO;
 }
 
+- (char)handlesMovieFiles {
+    return NO;
+}
+
 - (NSString *)defaultDirectory {
     return [NSHomeDirectory() stringByAppendingPathComponent:@"Pictures"];
 }
@@ -307,10 +311,21 @@ static int loggingIn;
     
     // Get defaults for the Title and Description fields (thx Nathaniel Gray)
     NSString *currAlbum, *currComments = nil;
-    currAlbum = [exportManager albumName];
+    if ([exportManager respondsToSelector:@selector(albumName)]) {
+        currAlbum = [exportManager albumName];
+        if ([exportManager respondsToSelector:@selector(albumComments)])
+            currComments = [exportManager albumComments];
+    }
+    else if ([exportManager respondsToSelector:@selector(albumNameAtIndex:)]) {
+        // iPhoto 7
+        if ([exportManager albumCount] > 0) {
+            currAlbum = [exportManager albumNameAtIndex:0];
+            currComments = [exportManager albumCommentsAtIndex:0];
+        }
+    }
+    
+    // Make these empty strings if they're nil
     currAlbum = currAlbum ? currAlbum : @"";
-    if ([exportManager respondsToSelector:@selector(albumComments)])
-        currComments = [exportManager albumComments];
     currComments = currComments ? currComments : @"";
     
     [albumSettingsPanel makeFirstResponder:albumSettingsTitleField];
@@ -859,7 +874,11 @@ static int loggingIn;
         return [exportManager imageDictionaryAtIndex:index];
     
     NSMutableDictionary *imageDict = [NSMutableDictionary dictionary];
-    if ([exportManager respondsToSelector:@selector(imageCaptionAtIndex:)])
+    
+    // iPhoto7 changes this to imageTitleAtIndex (thx Jamie Neufeld)
+    if ([exportManager respondsToSelector:@selector(imageTitleAtIndex:)])
+        [imageDict setObject:[exportManager imageTitleAtIndex:index] forKey:@"Caption"];
+    else if ([exportManager respondsToSelector:@selector(imageCaptionAtIndex:)])
         [imageDict setObject:[exportManager imageCaptionAtIndex:index] forKey:@"Caption"];
     
     if ([exportManager respondsToSelector:@selector(imageCommentsAtIndex:)])

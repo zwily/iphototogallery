@@ -67,6 +67,7 @@
 - thumbnailPathAtIndex:(unsigned int)fp12;
 - imagePathAtIndex:(unsigned int)fp12;
 - imageCaptionAtIndex:(unsigned int)fp12;
+- imageTitleAtIndex:(unsigned int)fp12; // added in iPhoto 7
 - imageCommentsAtIndex:(unsigned int)fp12; // added in iPhoto 5
 - (unsigned int)imageFormatAtIndex:(unsigned int)fp12;
 - (struct _NSSize)imageSizeAtIndex:(unsigned int)fp12;
